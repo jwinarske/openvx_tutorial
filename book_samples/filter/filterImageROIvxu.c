@@ -21,9 +21,9 @@ int main(int argc, char **argv)
 
     vx_image input = createImageFromFile(context, "cup.ppm", &attr);
     printf("input image created\n");
-    if(vxGetStatus(input) != VX_SUCCESS)
+    if(vxGetStatus((vx_reference)input) != VX_SUCCESS)
     {
-        printf("Status error: %d", vxGetStatus(input));
+        printf("Status error: %d", vxGetStatus((vx_reference)input));
     }
 
     vx_rectangle_t rect;
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     /* create a threshold object */
     vx_threshold threshold = vxCreateThresholdForImage(context,
       VX_THRESHOLD_TYPE_RANGE, VX_DF_IMAGE_U8, VX_DF_IMAGE_U8);
-    if(vxGetStatus(threshold) != VX_SUCCESS)
+    if(vxGetStatus((vx_reference)threshold) != VX_SUCCESS)
     {
       printf("Threshold creation failed\n");
     }
