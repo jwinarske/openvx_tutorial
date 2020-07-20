@@ -83,16 +83,12 @@ public:
 
     int GetWidth()
     {
-        return (int) m_cap.get( CV_CAP_PROP_FRAME_WIDTH );
+        return (int) m_cap.get( cv::VideoCaptureProperties::CAP_PROP_FRAME_WIDTH );
     }
 
     int GetHeight()
     {
-#if 1 // TBD: workaround for reported OpenCV+Windows bug that returns width instead of height
-		return 480;
-#else
-        return (int) m_cap.get( CV_CAP_PROP_FRAME_HEIGHT );
-#endif
+        return (int) m_cap.get( cv::VideoCaptureProperties::CAP_PROP_FRAME_HEIGHT );
     }
 
     int GetStride()
@@ -119,7 +115,7 @@ public:
     void DrawText( int x, int y, const char * text )
     {
         cv::putText( m_imgBGR, text, cv::Point( x, y ),
-                     cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, cv::Scalar( 128, 0, 0 ), 1, CV_AA );
+                     cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, cv::Scalar( 128, 0, 0 ), 1, cv::LINE_AA );
 #if !ENABLE_DISPLAY
         printf("text: %s\n", text);
 #endif
@@ -181,3 +177,4 @@ protected:
 };
 
 #endif
+

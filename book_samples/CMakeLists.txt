@@ -29,7 +29,15 @@ if(NOT ${VXA_FOUND})
 endif()
 
 
-include_directories($ENV{C_INCLUDE_PATH})
+find_package(OpenCL)
+
+include_directories(
+  ${OpenCV_INCLUDES}
+  ${OPENVX_INCLUDES}
+  ${VXU_INCLUDES}
+  ${VXA_INCLUDES}
+)
+
 include_directories(ppm-io)
 link_directories(/usr/local/lib)
 
@@ -40,7 +48,12 @@ add_subdirectory(example4)
 add_subdirectory(filter)
 add_subdirectory(stitch)
 add_subdirectory(hough)
-add_subdirectory(birds-eye)
+if(LAPACK_FOUND)
+    add_subdirectory(birds-eye)
+endif()
 add_subdirectory(undistort)
 add_subdirectory(tracking)
-add_subdirectory(opencl_interop)
+if(OpenCL_FOUND)
+    add_subdirectory(opencl_interop)
+endif()
+
