@@ -207,7 +207,7 @@ vx_status VX_CALLBACK initialCentroidCalculation_function(vx_node node, const vx
 	// Now calculate centroid (mean) and standard deviation of the corners using the sums and sums of squares.
 	// We can also assess validity during this operation
 	// From the means and standard deviations we calculate the spread ratio and normalised displacement
-	printf("Initial number of corners: %ld\n", num_corners);
+	printf("Initial number of corners: %zu\n", num_corners);
 	if (num_corners < 2)
 	{
 		// need at least two features to be able to establish a centroid and spread
@@ -409,7 +409,7 @@ static vx_size calculate_new_bounding_box(vx_size orig_num_corners, userTracking
 		// need at least two features to be able to establish a centroid and spread
 		if ( tracking_data->num_corners != num_corners)
 		{
-			printf("Number of corners was %d, is now %ld\n", tracking_data->num_corners, num_corners);
+			printf("Number of corners was %d, is now %zu\n", tracking_data->num_corners, num_corners);
 			meanx = osumx / num_corners;
 			meany = osumy / num_corners;
 			sigmax = sqrt( osumsqx / num_corners - meanx * meanx);

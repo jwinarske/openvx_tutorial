@@ -55,7 +55,7 @@ vx_graph makeFilterGraph(vx_context context, vx_image input, vx_image output)
     return graph;
 }
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     if (argc != 3)
     {

@@ -59,7 +59,7 @@ vx_graph makeFilterGraph(vx_context context, vx_image input,
     return graph;
 }
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     struct read_image_attributes attr;
     vx_context context = vxCreateContext();

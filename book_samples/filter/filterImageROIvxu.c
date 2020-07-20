@@ -9,7 +9,7 @@ Read and write an image.
 #include "readImage.h"
 #include "writeImage.h"
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     printf("Started\n");
     struct read_image_attributes attr;
